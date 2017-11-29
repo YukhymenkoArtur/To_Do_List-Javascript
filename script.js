@@ -6,6 +6,7 @@ function get_todos() {
     }
     return todos;
 }
+    
 
 // ф-ция добавления 
 function add() {
@@ -22,7 +23,8 @@ function add() {
 
 }
 
- 
+
+
 // show вона ж як render
 function show() {
     var todos = get_todos();
@@ -30,7 +32,7 @@ function show() {
     var html = '<ul>';
     for(var i=0; i<todos.length; i++) {
         html += '<li>' + todos[i] + '<button class="remove" id="' + i  + '">x</button></li>'
-                                  +'<button class="edit" id="' + i  + '">edit</button></li>'
+                                  // +'<button class="edit" id="' + i  + '">edit</button></li>'
                                   +'<button class="done" id="' + i  + '">Done</button></li>';
     };
 
@@ -44,10 +46,10 @@ function show() {
         buttons[i].addEventListener('click', remove);
     };
     // функционал ф-ції edit
-    var buttons = document.getElementsByClassName('edit');
-    for (var i=0; i < buttons.length; i++) {
-        buttons[i].addEventListener('click', edit);
-    };
+    // var buttons = document.getElementsByClassName('edit');
+    // for (var i=0; i < buttons.length; i++) {
+    //     buttons[i].addEventListener('click', edit);
+    // };
     // функціонал ф-ції Done
     var buttons = document.getElementsByClassName('done');
     for (var i=0; i < buttons.length; i++) {
@@ -88,7 +90,7 @@ function edit() {
 function done() {
     var id = this.getAttribute('id');
     var todos = get_todos();
-    todos.splice(id, 1, "закреслення");
+    todos.splice(id, 1, "Mission Completе");
     localStorage.setItem('todo', JSON.stringify(todos));
  
     show();
